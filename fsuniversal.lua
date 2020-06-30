@@ -3,13 +3,13 @@ script_name("FSUNIVERSAL")
 script_author("Jetler")
 script_description("Script crack by Jetler")
 
-require "lib.moonloader" -- подключение библиотек
+require "lib.moonloader" -- ГЇГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЎГЁГЎГ«ГЁГ®ГІГҐГЄ
 
-local inicfg = require "inicfg" -- подключение библиотеки inicfg
+local inicfg = require "inicfg" -- ГЇГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГЁ inicfg
 local dlstatus = require('moonloader').download_status
 local sampev = require 'lib.samp.events'
 local keys = require 'vkeys'
-local encoding = require "encoding" -- подключение русификакции (русского текста)
+local encoding = require "encoding" -- ГЇГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ Г°ГіГ±ГЁГґГЁГЄГ ГЄГ¶ГЁГЁ (Г°ГіГ±Г±ГЄГ®ГЈГ® ГІГҐГЄГ±ГІГ )
 
 local directIni = "moonloader\\fsuniversal.ini"
 
@@ -18,17 +18,17 @@ update_state = false
 local script_vers = 2
 local script_vers_text = "2.00"
 
-local update_url = "https://raw.githubusercontent.com/Jetler/fsuniversal/master/update.ini" -- тут тоже свою ссылку
-local update_path = getWorkingDirectory() .. "/update.ini" -- и тут свою ссылку
+local update_url = "https://raw.githubusercontent.com/Jetler/fsuniversal/master/update.ini" -- ГІГіГІ ГІГ®Г¦ГҐ Г±ГўГ®Гѕ Г±Г±Г»Г«ГЄГі
+local update_path = getWorkingDirectory() .. "/update.ini" -- ГЁ ГІГіГІ Г±ГўГ®Гѕ Г±Г±Г»Г«ГЄГі
 
 -- local script_url ""
 
-local script_url = "https://raw.githubusercontent.com/Jetler/fsuniversal/master/update.ini" -- тут свою ссылку
+local script_url = "https://github.com/Jetler/fsuniversal/blob/master/fsuniversal.lua" -- ГІГіГІ Г±ГўГ®Гѕ Г±Г±Г»Г«ГЄГі
 local script_path = thisScript().path
 
 local mainIni = inicfg.load(nil, directIni)
-encoding.default = "CP1251" -- Подключение кодировки CP1251
-u8 = encoding.UTF8 -- переменная для транслита текста на русский язык
+encoding.default = "CP1251" -- ГЏГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЄГ®Г¤ГЁГ°Г®ГўГЄГЁ CP1251
+u8 = encoding.UTF8 -- ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г Гї Г¤Г«Гї ГІГ°Г Г­Г±Г«ГЁГІГ  ГІГҐГЄГ±ГІГ  Г­Г  Г°ГіГ±Г±ГЄГЁГ© ГїГ§Г»ГЄ
 
 
 function main()
@@ -47,15 +47,15 @@ function main()
         if status == dlstatus.STATUS_ENDDOWNLOADDATA then
             updateIni = inicfg.load(nil, update_path)
 			if tonumber(updateIni.info.vers) > script_vers then
-				dlg = string.format("{AE433D}* {AFAFAF}Важная информация! Версия вашего скрипта устарела\n{AE433D}* {AFAFAF}Для стабильной игры обновите скрипт Кнопкой {AE433D}'Обновить' {AFAFAF}или командой {AE433D}/update\n{AE433D}* {AFAFAF}Текущая версия скрпита: {AE433D}" ..thisScript().version.. "v \n{AE433D}* {AFAFAF}Обновленая версия скрипта: {AE433D}"..updateIni.info.vers_text..".0v")
-				sampShowDialog(3, "{AFAFAF}FSUNIVERSAL | {AE433D}Автообновление", dlg, "Обновить", "Завершить")
-				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Для обновления введите команду {AE433D}/update", thisScript().version), 0xAE433D) -- выводим текста в чат
+				dlg = string.format("{AE433D}* {AFAFAF}Г‚Г Г¦Г­Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї! Г‚ГҐГ°Г±ГЁГї ГўГ ГёГҐГЈГ® Г±ГЄГ°ГЁГЇГІГ  ГіГ±ГІГ Г°ГҐГ«Г \n{AE433D}* {AFAFAF}Г„Г«Гї Г±ГІГ ГЎГЁГ«ГјГ­Г®Г© ГЁГЈГ°Г» Г®ГЎГ­Г®ГўГЁГІГҐ Г±ГЄГ°ГЁГЇГІ ГЉГ­Г®ГЇГЄГ®Г© {AE433D}'ГЋГЎГ­Г®ГўГЁГІГј' {AFAFAF}ГЁГ«ГЁ ГЄГ®Г¬Г Г­Г¤Г®Г© {AE433D}/update\n{AE433D}* {AFAFAF}Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЇГЁГІГ : {AE433D}" ..thisScript().version.. "v \n{AE433D}* {AFAFAF}ГЋГЎГ­Г®ГўГ«ГҐГ­Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : {AE433D}"..updateIni.info.vers_text..".0v")
+				sampShowDialog(3, "{AFAFAF}FSUNIVERSAL | {AE433D}ГЂГўГІГ®Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ", dlg, "ГЋГЎГ­Г®ГўГЁГІГј", "Г‡Г ГўГҐГ°ГёГЁГІГј")
+				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Г„Г«Гї Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї ГўГўГҐГ¤ГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі {AE433D}/update", thisScript().version), 0xAE433D) -- ГўГ»ГўГ®Г¤ГЁГ¬ ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
 				update_state = true
 			else 
-				dialog = (string.format("{AE433D}* {AFAFAF}Важная информация! Новых обновлений не обнаружено!\n{AE433D}* {AFAFAF}Работа скрипта продолжена.\n{AE433D}* {AFAFAF}Текущая версия скрипта: {ae433d}" ..thisScript().version) .."v")
-				sampShowDialog(2, "{AFAFAF}FSUNIVERSAL | {AE433D}Автообновление", dialog, "Окей", "")
-				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Скрипт успешно загружен! Текущая версия скрипта {AE433D}%sv. {AFAFAF}Разработчик скрипта {AE433D}Jetler", thisScript().version), 0xAE433D) -- выводим текста в чат
-				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Помощь по использованию: {AE433D}/fsuniversal", thisScript().version), 0xAE433D) -- выводим текста в чат
+				dialog = (string.format("{AE433D}* {AFAFAF}Г‚Г Г¦Г­Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї! ГЌГ®ГўГ»Гµ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГ© Г­ГҐ Г®ГЎГ­Г Г°ГіГ¦ГҐГ­Г®!\n{AE433D}* {AFAFAF}ГђГ ГЎГ®ГІГ  Г±ГЄГ°ГЁГЇГІГ  ГЇГ°Г®Г¤Г®Г«Г¦ГҐГ­Г .\n{AE433D}* {AFAFAF}Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : {ae433d}" ..thisScript().version) .."v")
+				sampShowDialog(2, "{AFAFAF}FSUNIVERSAL | {AE433D}ГЂГўГІГ®Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ", dialog, "ГЋГЄГҐГ©", "")
+				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г§Г ГЈГ°ГіГ¦ГҐГ­! Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ  {AE433D}%sv. {AFAFAF}ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ Г±ГЄГ°ГЁГЇГІГ  {AE433D}Jetler", thisScript().version), 0xAE433D) -- ГўГ»ГўГ®Г¤ГЁГ¬ ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
+				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}ГЏГ®Г¬Г®Г№Гј ГЇГ® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГѕ: {AE433D}/fsuniversal", thisScript().version), 0xAE433D) -- ГўГ»ГўГ®Г¤ГЁГ¬ ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
             end
             os.remove(update_path)
         end
@@ -70,14 +70,14 @@ function main()
 			if update_state then
 				downloadUrlToFile(script_url, script_path, function(id, status)
 					if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-						sampAddChatMessage("Скрипт успешно обновлен!", -1)
+						sampAddChatMessage("Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­!", -1)
 						thisScript():reload()
 					end
 				end)
 				break
 			end
 			else
-				sampAddChatMessage("не успешно обновлен!", -1)
+				sampAddChatMessage("Г­ГҐ ГіГ±ГЇГҐГёГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­!", -1)
 			end
 		end
 end
@@ -86,17 +86,17 @@ end
 
 function sampev.onShowDialog(dialogid, style, title, button1, button2, text)
 	--sampAddChatMessage(string.format("ShowPlayerDialog(playerid, %d, %s, %s, %s, %s, %s", dialogid, style, button1, button2, text), 0xAFAFAF)
-	-- sampAddChatMessage(string.format("ShowPlayerDialog(playerid, %d, %s, %s, %s, %s, %s", dialogid, style, button1, button2, text), 0xAE433D) -- выводим текста в чат
+	-- sampAddChatMessage(string.format("ShowPlayerDialog(playerid, %d, %s, %s, %s, %s, %s", dialogid, style, button1, button2, text), 0xAE433D) -- ГўГ»ГўГ®Г¤ГЁГ¬ ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
 	--sampAddChatMessage(dialogid style, title, button1, button2, text)
 	sampAddChatMessage(string.format("ShowPlayerDialog(playerid," ..dialogid.. ","..style.. ","..title..","..text..","..button1..","..button2), 0xAFAFAF)
 end
 
 function fsuniversal()
 	if update_state == true then
-		sampAddChatMessage("[FSUNIVERSAL] {AFAFAF}Вы еще не обновили скрипт, после обновления, скрипт возобновит свою работу!", 0xae433d)
+		sampAddChatMessage("[FSUNIVERSAL] {AFAFAF}Г‚Г» ГҐГ№ГҐ Г­ГҐ Г®ГЎГ­Г®ГўГЁГ«ГЁ Г±ГЄГ°ГЁГЇГІ, ГЇГ®Г±Г«ГҐ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї, Г±ГЄГ°ГЁГЇГІ ГўГ®Г§Г®ГЎГ­Г®ГўГЁГІ Г±ГўГ®Гѕ Г°Г ГЎГ®ГІГі!", 0xae433d)
 	end
 	if update_state == false then
-		sampShowDialog(2, "{AFAFAF}FSUNIVERSAL | {AE433D}Инструкция", "{AFAFAF}Клавиша Z: Открыть меню FS3DT [{ae433d}3D Text Stealer{AFAFAF}]\n{AFAFAF}Клавиша X: Открыть меню FSD [{ae433d}Dialog Stealer{AFAFAF}]\n{AFAFAF}Клавиша B: Открыть меню FSSPAO [{ae433d}PlayerAttach Strealer{AFAFAF}]\n{AFAFAF}Клавиша M: Открыть меню FSPICKUP [{ae433d}Pickup Strealer{AFAFAF}]\n{AFAFAF}Клавиша K: Открыть меню FSMAPICON [{ae433d}MapIcon Strealer{AFAFAF}]\n{AFAFAF}Клавиша J: Открыть меню FSACTOR [{ae433d}Actor Strealer{AFAFAF}]\n{AFAFAF}Клавиша L: Открыть меню FS3DT + FSPICKUP (BETA) [{ae433d}3D Text + Pickup Stealer{AFAFAF}]\n{AFAFAF}Команда /fsoav [{ae433d}VehicleAttach Stealer{AFAFAF}]\n{AFAFAF}Команда /fso [{ae433d}Object Stealer{AFAFAF}]\n{AFAFAF}Команда /fstd [{ae433d}TextDraw Stealer{AFAFAF}]\n{AFAFAF}Команда /fscam [{ae433d}Camera Stealer{AFAFAF}]\n{AFAFAF}Команда /fsanim [{ae433d}Anim Stealer{AFAFAF}]\n{AFAFAF}Команда /fsgametext [{ae433d}GameText Stealer{AFAFAF}]\n{AFAFAF}Команда /fssound [{ae433d}Sounds Stealer{AFAFAF}]\n{afafaf}Команда /update [{AE433D}Проверка на обновления{AFAFAF}]\n\nАвтор доработки скрипта - {AE433D}Jetler", "Закрыть", "")
+		sampShowDialog(2, "{AFAFAF}FSUNIVERSAL | {AE433D}Г€Г­Г±ГІГ°ГіГЄГ¶ГЁГї", "{AFAFAF}ГЉГ«Г ГўГЁГёГ  Z: ГЋГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ FS3DT [{ae433d}3D Text Stealer{AFAFAF}]\n{AFAFAF}ГЉГ«Г ГўГЁГёГ  X: ГЋГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ FSD [{ae433d}Dialog Stealer{AFAFAF}]\n{AFAFAF}ГЉГ«Г ГўГЁГёГ  B: ГЋГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ FSSPAO [{ae433d}PlayerAttach Strealer{AFAFAF}]\n{AFAFAF}ГЉГ«Г ГўГЁГёГ  M: ГЋГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ FSPICKUP [{ae433d}Pickup Strealer{AFAFAF}]\n{AFAFAF}ГЉГ«Г ГўГЁГёГ  K: ГЋГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ FSMAPICON [{ae433d}MapIcon Strealer{AFAFAF}]\n{AFAFAF}ГЉГ«Г ГўГЁГёГ  J: ГЋГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ FSACTOR [{ae433d}Actor Strealer{AFAFAF}]\n{AFAFAF}ГЉГ«Г ГўГЁГёГ  L: ГЋГІГЄГ°Г»ГІГј Г¬ГҐГ­Гѕ FS3DT + FSPICKUP (BETA) [{ae433d}3D Text + Pickup Stealer{AFAFAF}]\n{AFAFAF}ГЉГ®Г¬Г Г­Г¤Г  /fsoav [{ae433d}VehicleAttach Stealer{AFAFAF}]\n{AFAFAF}ГЉГ®Г¬Г Г­Г¤Г  /fso [{ae433d}Object Stealer{AFAFAF}]\n{AFAFAF}ГЉГ®Г¬Г Г­Г¤Г  /fstd [{ae433d}TextDraw Stealer{AFAFAF}]\n{AFAFAF}ГЉГ®Г¬Г Г­Г¤Г  /fscam [{ae433d}Camera Stealer{AFAFAF}]\n{AFAFAF}ГЉГ®Г¬Г Г­Г¤Г  /fsanim [{ae433d}Anim Stealer{AFAFAF}]\n{AFAFAF}ГЉГ®Г¬Г Г­Г¤Г  /fsgametext [{ae433d}GameText Stealer{AFAFAF}]\n{AFAFAF}ГЉГ®Г¬Г Г­Г¤Г  /fssound [{ae433d}Sounds Stealer{AFAFAF}]\n{afafaf}ГЉГ®Г¬Г Г­Г¤Г  /update [{AE433D}ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї{AFAFAF}]\n\nГЂГўГІГ®Г° Г¤Г®Г°Г ГЎГ®ГІГЄГЁ Г±ГЄГ°ГЁГЇГІГ  - {AE433D}Jetler", "Г‡Г ГЄГ°Г»ГІГј", "")
 	end
 end
 
@@ -106,15 +106,15 @@ function check_update()
         if status == dlstatus.STATUS_ENDDOWNLOADDATA then
             updateIni = inicfg.load(nil, update_path)
 			if tonumber(updateIni.info.vers) > script_vers then
-				dlg = string.format("{AE433D}* {AFAFAF}Важная информация! Версия вашего скрипта устарела\n{AE433D}* {AFAFAF}Для стабильной игры обновите скрипт Кнопкой {AE433D}'Обновить' {AFAFAF}или командой {AE433D}/update\n{AE433D}* {AFAFAF}Текущая версия скрпита: {AE433D}" ..thisScript().version.. "v \n{AE433D}* {AFAFAF}Обновленая версия скрипта: {AE433D}"..updateIni.info.vers_text..".0v")
-				sampShowDialog(3, "{AFAFAF}FSUNIVERSAL | {AE433D}Автообновление", dlg, "Обновить", "Завершить")
-				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Для обновления введите команду {AE433D}/update", thisScript().version), 0xAE433D) -- выводим текста в чат
+				dlg = string.format("{AE433D}* {AFAFAF}Г‚Г Г¦Г­Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї! Г‚ГҐГ°Г±ГЁГї ГўГ ГёГҐГЈГ® Г±ГЄГ°ГЁГЇГІГ  ГіГ±ГІГ Г°ГҐГ«Г \n{AE433D}* {AFAFAF}Г„Г«Гї Г±ГІГ ГЎГЁГ«ГјГ­Г®Г© ГЁГЈГ°Г» Г®ГЎГ­Г®ГўГЁГІГҐ Г±ГЄГ°ГЁГЇГІ ГЉГ­Г®ГЇГЄГ®Г© {AE433D}'ГЋГЎГ­Г®ГўГЁГІГј' {AFAFAF}ГЁГ«ГЁ ГЄГ®Г¬Г Г­Г¤Г®Г© {AE433D}/update\n{AE433D}* {AFAFAF}Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЇГЁГІГ : {AE433D}" ..thisScript().version.. "v \n{AE433D}* {AFAFAF}ГЋГЎГ­Г®ГўГ«ГҐГ­Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : {AE433D}"..updateIni.info.vers_text..".0v")
+				sampShowDialog(3, "{AFAFAF}FSUNIVERSAL | {AE433D}ГЂГўГІГ®Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ", dlg, "ГЋГЎГ­Г®ГўГЁГІГј", "Г‡Г ГўГҐГ°ГёГЁГІГј")
+				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Г„Г«Гї Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї ГўГўГҐГ¤ГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі {AE433D}/update", thisScript().version), 0xAE433D) -- ГўГ»ГўГ®Г¤ГЁГ¬ ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
 				update_state = true
 			else 
-				dialog = (string.format("{AE433D}* {AFAFAF}Важная информация! Новых обновлений не обнаружено!\n{AE433D}* {AFAFAF}Работа скрипта продолжена.\n{AE433D}* {AFAFAF}Текущая версия скрипта: {ae433d}" ..thisScript().version) .."v")
-				sampShowDialog(2, "{AFAFAF}FSUNIVERSAL | {AE433D}Автообновление", dialog, "Окей", "")
-				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Скрипт успешно загружен! Текущая версия скрипта {AE433D}%sv. {AFAFAF}Разработчик скрипта {AE433D}Jetler", thisScript().version), 0xAE433D) -- выводим текста в чат
-				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Помощь по использованию: {AE433D}/fsuniversal", thisScript().version), 0xAE433D) -- выводим текста в чат
+				dialog = (string.format("{AE433D}* {AFAFAF}Г‚Г Г¦Г­Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї! ГЌГ®ГўГ»Гµ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГ© Г­ГҐ Г®ГЎГ­Г Г°ГіГ¦ГҐГ­Г®!\n{AE433D}* {AFAFAF}ГђГ ГЎГ®ГІГ  Г±ГЄГ°ГЁГЇГІГ  ГЇГ°Г®Г¤Г®Г«Г¦ГҐГ­Г .\n{AE433D}* {AFAFAF}Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : {ae433d}" ..thisScript().version) .."v")
+				sampShowDialog(2, "{AFAFAF}FSUNIVERSAL | {AE433D}ГЂГўГІГ®Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ", dialog, "ГЋГЄГҐГ©", "")
+				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г§Г ГЈГ°ГіГ¦ГҐГ­! Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ  {AE433D}%sv. {AFAFAF}ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ Г±ГЄГ°ГЁГЇГІГ  {AE433D}Jetler", thisScript().version), 0xAE433D) -- ГўГ»ГўГ®Г¤ГЁГ¬ ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
+				sampAddChatMessage(string.format("[FSUNIVERSAL] {AFAFAF}ГЏГ®Г¬Г®Г№Гј ГЇГ® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГѕ: {AE433D}/fsuniversal", thisScript().version), 0xAE433D) -- ГўГ»ГўГ®Г¤ГЁГ¬ ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
             end
             os.remove(update_path)
         end
